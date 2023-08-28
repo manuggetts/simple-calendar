@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário simples</title>
+</head>
+
+<body>
+    <div class="calendar" id="calendar"></div>
+    <script>
+        const calendarContainer = document.getElementById("calendar");
+
+        function createCalendar(year, month) {
+            const daysInMont = new Date(year, month + 1, 0).getDate();
+            const firstDayOfWeek = new Date(year, month, 1).getDay();
+
+            let calendarHTML = "";
+
+            for (let i = 0; i < firstDayOfWeek; i++) {
+                calendarHTML += "<div class='day'></div>";
+            }
+
+            for (let day = 1; day <= daysInMont; day++) {
+                calendarHTML += `div class='day'>${day}</div>`;
+            }
+
+            calendarContainer.innerHTML = calendarHTML
+        }
+
+        const currentDate = new Date();
+        createCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    </script>
+</body>
+
+</html>
