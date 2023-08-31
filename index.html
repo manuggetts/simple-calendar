@@ -4,6 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            border: 1px solid #ccc;
+        }
+
+        .day {
+            border: 1px solid #ccc;
+            padding: 5%;
+            text-align: center;
+        }
+    </style>
     <title>Calendário simples</title>
 </head>
 
@@ -23,7 +40,7 @@
             }
 
             for (let day = 1; day <= daysInMont; day++) {
-                calendarHTML += `div class='day'>${day}</div>`;
+                calendarHTML += `<div class='day'>${day}</div>`;
             }
 
             calendarContainer.innerHTML = calendarHTML
